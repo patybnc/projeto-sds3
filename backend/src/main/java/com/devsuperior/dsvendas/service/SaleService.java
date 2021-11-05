@@ -29,15 +29,16 @@ public class SaleService {
 		sellerRepository.findAll();
 		Page<Sale> result = repository.findAll(pageable);
 		return result.map(x -> new SaleDTO(x));
-	}	
+	}
+	
 	@Transactional(readOnly = true)
 	public List<SaleSumDTO> amountGroupedBySeller() {	
-		return repository.amountGroupeBySeller();
+		return repository.amountGroupedBySeller();
 	}
 	
 	@Transactional(readOnly = true)
 	public List<SaleSuccessDTO> successGroupedBySeller() {	
-		return repository.successGroupeBySeller();
+		return repository.successGroupedBySeller();
 	}
 }
 
